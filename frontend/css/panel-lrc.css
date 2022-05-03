@@ -1,0 +1,85 @@
+#panel-lrc {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+/* ?------------------------------ */
+#dndUploadLyric {
+  height: 100%;
+  overflow-y: auto;
+  scrollbar-width: none;
+  flex: 1;
+  padding: 10px 20px;
+  text-align: center;
+  border-left: 1px solid var(--color-bdr);
+}
+#dndUploadLyric .list-item {
+  user-select: text;
+}
+#dndUploadLyric .list-item::selection {
+  color: var(--bgc-fg);
+  background-color: var(--bgc-vi);
+}
+/* ?------------------------------ */
+#no-lyrics {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: var(--bottom-bar-height);
+  right: 0;
+  background-color: var(--color-bdr);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: impact;
+  font-size: 3rem;
+  color: var(--bgc-fg);
+  text-shadow: -2px 2px 5px var(--color-em);
+  opacity: 0.5;
+}
+#no-lyrics b {
+  color: var(--bgc-vi);
+}
+#no-lyrics svg {
+  width: 8rem;
+  height: 8rem;
+  fill: var(--bgc-vi);
+}
+/* ?------------------------------- */
+#audioPlayerCtrl {
+  width: 100%;
+  height: var(--bottom-bar-height);
+  border-top: 1px solid var(--color-bdr);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+#audioPlayerCtrl div {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+#audioPlayerCtrl svg {
+  box-sizing: content-box;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 5px;
+  fill: var(--color-sub);
+  cursor: pointer;
+}
+#audioPlayerCtrl svg:hover {
+  fill: var(--color-em);
+}
+/* ?------------------------------ */
+#lrc-offset {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 5px;
+}
+#lrc-offset svg {
+  width: auto;
+  height: 1rem;
+}

@@ -1,0 +1,29 @@
+.toast {
+  height: 40px;
+  line-height: 40px;
+  max-width: fit-content;
+  position: fixed;
+  top: 1rem;
+  right: -100%;
+  padding: 0 2rem;
+
+  color: var(--color-em);
+  background-color: #fff;
+  transition: right 500ms cubic-bezier(0.5, 0.6, 0.7, 1.2);
+  box-shadow: 0 2px 5px 0 var(--color-shadow);
+  border-left-width: 1rem;
+  border-left-style: solid;
+  /* border-radius: 5px; */
+}
+.toast-success {
+  border-left-color: #3c3;
+}
+.toast-failure {
+  border-left-color: #333;
+}
+.toast-alert {
+  border-left-color: #c33;
+}
+.toast-active {
+  right: 1rem;
+}

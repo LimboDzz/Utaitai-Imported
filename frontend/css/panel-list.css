@@ -1,0 +1,47 @@
+#panel-list {
+  width: var(--panel-list-width);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+/* ?------------------------------- */
+#select-search {
+  border-bottom: solid 1px var(--color-bdr);
+  background-color: var(--bgc-bg);
+  width: 100%;
+  height: 60px;
+  font-size: 1rem;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--color-sec);
+}
+#multi-select {
+  padding: 5px;
+  cursor: pointer;
+}
+/* ?------------------------------- */
+#dndUploadTrack {
+  flex: 1;
+  padding: 10px 20px 0;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+/* ?------------------------------- */
+#current-track-info {
+  width: var(--panel-list-width);
+  height: var(--bottom-bar-height);
+  background-color: var(--bgc-bg);
+  border-top: 1px solid var(--color-bdr);
+  display: flex;
+  padding: 0 20px;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 1.5em;
+  text-align: right;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

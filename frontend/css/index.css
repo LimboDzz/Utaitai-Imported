@@ -1,0 +1,123 @@
+:root {
+  --bgc-vi: #ff5252;
+  --bgc-aside: #ffffff;
+  --bgc-fg: #ffffff;
+  --bgc-bg: #f8f8f8;
+  --bgc-em: #f1f1f1;
+
+  --color-em: #7f7e7a;
+  --color-sub: #bababa;
+  --color-sec: #9699a1;
+  --color-pri: #3d454c;
+  --color-shadow: rgba(0, 0, 0, 0.3);
+  --color-btn: rgba(0, 0, 0, 0.05);
+  --color-btn-hover: rgba(0, 0, 0, 0.1);
+  --color-bdr: rgba(0, 0, 0, 0.1);
+  --bdr-r: 10px;
+
+  --aside-width: 170px;
+  --panel-list-width: 330px;
+  --bottom-bar-height: 5rem;
+  --logo-height: 6rem;
+
+  font-size: 16px;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+a {
+  text-decoration: none;
+}
+input {
+  outline: none;
+  background-color: transparent;
+  border: none;
+  font-size: 1rem;
+}
+body {
+  height: 100vh;
+  background-color: var(--bgc-bg);
+  overflow: hidden;
+}
+/* ?------------------------------- */
+aside {
+  background-color: var(--bgc-aside);
+  width: 170px;
+  height: 100%;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+
+  display: flex;
+  flex-direction: column;
+}
+#logo {
+  width: 100%;
+  height: var(--logo-height);
+  background-color: var(--bgc-vi);
+  /* background-image: url(../images/logo.png);
+  background-repeat: no-repeat;
+  background-size: cover; */
+}
+#funcs-aside {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+}
+#funcs-aside > div {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 10px;
+}
+#funcs-aside > div > a {
+  padding: 15px 20px;
+  border-radius: var(--bdr-r);
+  font-size: 1rem;
+}
+#funcs-aside > div > a i {
+  padding: 0 10px;
+}
+/* ?------------------------------- */
+main {
+  width: calc(100% - var(--aside-width));
+  height: 100%;
+  position: absolute;
+  left: var(--aside-width);
+  top: 0px;
+  display: flex;
+}
+#progress-bar {
+  width: 0%;
+  height: 2px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  background-color: var(--bgc-vi);
+}
+#query-card {
+  position: fixed;
+  width: 300px;
+  height: 200px;
+  border: 5px solid #000;
+  right: 1rem;
+  bottom: 1rem;
+  transform: scale(0);
+  transform-origin: right bottom;
+  transition: 300ms;
+}
+#query-card svg {
+  box-sizing: content-box;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 5px;
+  fill: var(--color-sub);
+  cursor: pointer;
+}
+#query-card.popup {
+  transform: scale(1);
+}
