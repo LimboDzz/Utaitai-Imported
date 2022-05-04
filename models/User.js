@@ -17,11 +17,11 @@ const userSchema = new mongoose.Schema({
     createAt: { type: Date, required: true, default: Date.now },
     trackList: [trackSchema],
     settings: {
-        darkMode: { type: String, default: false },
+        darkMode: { type: Boolean, default: false },
         volume: { type: Number, default: 0.1 },
         loop: { type: Boolean, default: false },
         autoplay: { type: Boolean, default: false },
-        offset: { type: Number, default: 300 },
+        offset: { type: Number, default: 0 },
         lineFollow: { type: Boolean, default: false }
     },
     noteList: [{

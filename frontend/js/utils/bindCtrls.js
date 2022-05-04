@@ -2,10 +2,6 @@ import togglePlay from './togglePlay.js'
 import Toast from './Toast.js'
 
 
-
-
-
-
 export default function () {
     const audioPlayer = document.querySelector('#audioPlayer')
     const dndUploadLyrics = document.querySelector('#dndUploadLyrics')

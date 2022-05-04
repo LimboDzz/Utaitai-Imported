@@ -6,45 +6,51 @@
     <title>Html Generated</title>
     <meta name="description" content="Figma htmlGenerator">
     <meta name="author" content="htmlGenerator">
+    <link rel="stylesheet" href="/static/css/theme/light.css" id="cssTheme">
     <link rel="stylesheet" href="/static/css/index.css">
     <link rel="stylesheet" href="/static/css/common.css">
-    <link rel="stylesheet" href="/static/css/panelLyrics.css">
-    <link rel="stylesheet" href="/static/css/panelList.css">
-    <link rel="stylesheet" href="/static/css/views.css">
     <script src="https://kit.fontawesome.com/d34930d8e2.js" crossorigin="anonymous"></script>
   </head>
+  <style>
+    #sign {
+      pointer-events: all;
+      border-radius: var(--bdr-r);
+      background-color: var(--bgc-vi);
+      margin: 20px 0;
+      padding: 10px 20px;
+      font-size: 2rem;
+      color: var(--bgc-fg);
+      font-weight: bold;
+      text-align: center;
+    }
+  </style>
 
   <body>
-    <div id="wrapper">
+    <div id="wrapper" class="forbidden">
       <aside>
         <div id="logo"></div>
-        <div id="funcs-aside">
+        <div id="funcsAside">
           <div>
-            <a class="em-select" href="/view/playlist" view-link><i
+            <a class="em-select" id="toDndUploadTrack" view-link><i
                 class="fa-solid fa-headphones"></i><span>Playlist</span></a>
-            <a class="em-select" href="/view/dictionary" view-link><i
+            <a class="em-select" id="toNoteList" view-link><i
                 class="fa-solid fa-book-medical"></i><span>Dictionary</span></a>
           </div>
           <div>
-            <a class="em-select" href="/view/settings" view-link><i class="fa-solid fa-gear"></i>Settings</a>
+            <a class="em-select" id="toSettings" view-link><i class="fa-solid fa-gear"></i>Settings</a>
           </div>
         </div>
       </aside>
       <main>
-        <div id="toAuth">
-          <h1>You need to login first</h1>
-          <a href="/login">Click here to login</a>
+        <div id="settings">
+          <form>
+            <h1>Utaitai</h1>
+            <h2>Web Player for Language Acquisition</h2>
+            <a href="/login" id="sign">Sign up/in</a>
+          </form>
         </div>
       </main>
     </div>
   </body>
-  <script src="/static/js/app.js" type="module"></script>
-
-  <!-- 
-              <a href="#" onclick="backToTop()"><i class="fas fa-eject"></i></a>
-              <a href="#"><i class="far fa-rectangle-xmark"></i></a>
-            <a href="#"><i class="fas fa-pen-to-square"></i></a>
-            <a href="#"><i class="fas fa-arrow-down-a-z"></i></a>
-      -->
 
 </html>

@@ -6,6 +6,7 @@
     <title>Html Generated</title>
     <meta name="description" content="Figma htmlGenerator">
     <meta name="author" content="htmlGenerator">
+    <link rel="stylesheet" href="/static/css/theme/light.css" id="cssTheme">
     <link rel="stylesheet" href="/static/css/index.css">
     <link rel="stylesheet" href="/static/css/common.css">
     <link rel="stylesheet" href="/static/css/panelLyrics.css">
@@ -97,6 +98,36 @@
               </div>
             </div>
           </div>
+        </div>
+        <div id="settings" class="hidden">
+          <form>
+            <h1>Default Settings</h1>
+            <label for="defaultMode">
+              <input type="checkbox" id="defaultMode">
+              <span>DarkMode</span>
+            </label>
+            <label for="defaultLoop">
+              <input type="checkbox" id="defaultLoop">
+              <span>Single Song Loop</span>
+            </label>
+            <label for="defaultLineFollow">
+              <input type="checkbox" id="defaultLineFollow">
+              <span>Lyrics Follow</span>
+            </label>
+            <!-- <label for="defaultFontSize">
+              <input type="number" id="defaultFontSize">
+              <span>Font Size</span>
+            </label> -->
+          </form>
+          <!-- <form>
+            <h1>HotKey Bindings</h1>
+            <hot-key-binding>
+              <span slot="and">11111111</span>
+            </hot-key-binding>
+            <hot-key-binding></hot-key-binding>
+            <hot-key-binding></hot-key-binding>
+          </form> -->
+          <a id="logout" href="/logout">logout</a>
         </div>
       </main>
     </div>

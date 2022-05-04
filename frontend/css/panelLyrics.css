@@ -36,7 +36,7 @@
   font-family: impact;
   font-size: 3rem;
   color: var(--bgc-fg);
-  text-shadow: -2px 2px 5px var(--color-em);
+  text-shadow: -2px 2px 0px var(--color-em);
   opacity: 0.5;
 }
 #noLyrics b {

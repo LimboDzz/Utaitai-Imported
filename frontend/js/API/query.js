@@ -6,6 +6,7 @@ import Toast from "../utils/Toast.js";
  * @returns a promise
  */
 export default async function (query, from, to = "chi") {
+    // todo use better queryAPI
     const options = {
         method: 'GET',
         headers: {

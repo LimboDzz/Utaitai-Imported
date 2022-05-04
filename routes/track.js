@@ -17,8 +17,6 @@ router.get('/:key', (req, res) => {
 })
 // ? Update
 router.patch('/:key', getTrack, async (req, res) => {
-    req.track.offset = req.body.offset ?? req.track.offset
-    console.log(req.body.offset);
     req.track.name = req.body.name ?? req.track.name
     req.track.author = req.body.author ?? req.track.author
     req.track.tags = req.body.tags ?? req.track.tags

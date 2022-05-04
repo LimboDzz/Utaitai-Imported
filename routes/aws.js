@@ -15,7 +15,7 @@ router.post('/', multerSingle, async (req, res) => {
         // ! unlink file in temp
         fs.unlink(req.file.path, err => { if (err) res.json({ msg: err.message }) })
         // ! save track to DB
-        addTrack(req.user, {
+        await addTrack(req.user, {
             name: req.file.originalname.split(".")[0],
             size: req.file.size,
             key: result.key
@@ -36,12 +36,14 @@ router.get('/:key', (req, res) => {
 // // Update
 // ? Delete
 router.delete('/:key', async (req, res) => {
-    let result = {}
     const key = req.params.key
-    // !delete error
-    // await deleteFromS3(key)
-    result = await delTrack(req.user, key)
-    res.json(result)
+    try {
+        await deleteFromS3(key)
+        await delTrack(req.user, key)
+        res.json({})
+    } catch (error) {
+        res.json({ msg: 'err: Fail to delete. ' + error.message })
+    }
 })
 
 module.exports = router
@@ -51,9 +53,9 @@ module.exports = router
  * @param {User} user 
  * @param {Object} track 
  */
-async function addTrack(user, track) {
+function addTrack(user, track) {
     user.trackList.push(track)
-    await user.save()
+    return user.save()
 }
 
 /**
@@ -61,13 +63,7 @@ async function addTrack(user, track) {
  * @param {User} user 
  * @param {String} trackKey 
  */
-async function delTrack(user, key) {
-    let result = {}
+function delTrack(user, key) {
     user.trackList = user.trackList.filter(track => track.key != key)
-    try {
-        await user.save()
-    } catch (error) {
-        result = { msg: error.message }
-    }
-    return result
+    return user.save()
 }

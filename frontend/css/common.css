@@ -95,3 +95,7 @@ iframe {
   right: 0;
   bottom: 0;
 }
+
+.forbidden {
+  pointer-events: none;
+}

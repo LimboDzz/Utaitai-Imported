@@ -5,8 +5,8 @@
   height: 40px;
   line-height: 40px;
   padding: 0 2rem;
-  color: var(--color-em);
-  background-color: #fff;
+  color: var(--color-sec);
+  background-color: var(--bgc-fg);
   transition: 300ms;
   box-shadow: -2px 2px 2px 0 var(--color-shadow);
   border-left-width: 1rem;

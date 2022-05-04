@@ -19,7 +19,7 @@ export default function (lyrics, offset) {
             <div class="em-select list-item line">${content}</div>
         `)
         line.timestamp = timestamp + offset
-        line.addEventListener('click', function () {
+        line.addEventListener('click', function (e) {
             if (window.selecting) return
             const lines = document.querySelectorAll(`#dndUploadLyrics>.line`)
             lines.forEach(line => {

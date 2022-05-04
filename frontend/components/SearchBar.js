@@ -6,7 +6,7 @@ function content() {
     return contentFromHtml(`
 <style>
 label {
-  background-color: var(--bgc-fg);
+  background-color: var(--bgc-em);
   border-radius: var(--bdr-r);
   padding: 8px 15px;
   display: flex;

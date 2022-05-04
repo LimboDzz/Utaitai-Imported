@@ -177,7 +177,7 @@ export default class extends HTMLElement {
             // ?no lyrics
             player.lyricsLoaded = false
             const dndUploadLyrics = document.querySelector("#dndUploadLyrics")
-            dndUploadLyrics.innerHTML = ""
+            dndUploadLyrics.innerHTML = ``
             dndUploadLyrics.append(contentFromHtml(`
 <div id="noLyrics">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
