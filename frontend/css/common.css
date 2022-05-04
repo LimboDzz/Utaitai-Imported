@@ -45,6 +45,7 @@
   text-decoration: none;
   color: var(--color-sec);
   transition: 100ms;
+  cursor: pointer;
 }
 .em-select:hover {
   color: var(--color-em);
@@ -72,7 +73,7 @@
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 .enabled {
   fill: var(--bgc-vi) !important;
@@ -81,6 +82,16 @@
 .playing {
   transition: 300ms;
   background-color: var(--bgc-em);
+  color: var(--color-pri) !important;
   transform: scale(1.3);
   font-weight: 900;
+}
+
+embed,
+iframe {
+  position: fixed;
+  width: 400px;
+  height: 200px;
+  right: 0;
+  bottom: 0;
 }

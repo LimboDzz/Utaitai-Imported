@@ -222,14 +222,16 @@ export default class extends HTMLElement {
     deleteBtn() {
         this.shadowRoot.querySelector('#delete').addEventListener('click', async () => {
             const key = this.key
-            const res = await fetch(`/track/${key}`, {
+            const res = await fetch(`/aws/${key}`, {
                 method: "DELETE"
             })
             const { msg } = await res.json()
             if (msg)
                 Toast.send(msg, "alert")
-            else
+            else {
                 this.deleteTrackLi()
+                document.querySelector('#dndUploadLyrics').innerHTML = ""
+            }
             this.closeMask()
         })
     }

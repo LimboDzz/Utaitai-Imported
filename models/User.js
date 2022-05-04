@@ -18,11 +18,11 @@ const userSchema = new mongoose.Schema({
     trackList: [trackSchema],
     settings: {
         darkMode: { type: String, default: false },
-        volume: { type: Number, default: 0.5 },
+        volume: { type: Number, default: 0.1 },
         loop: { type: Boolean, default: false },
         autoplay: { type: Boolean, default: false },
         offset: { type: Number, default: 300 },
-        lyricFollow: { type: Boolean, default: false }
+        lineFollow: { type: Boolean, default: false }
     },
     noteList: [{
         head: { type: String, required: true },

@@ -1,73 +1,69 @@
 import togglePlay from './togglePlay.js'
 import Toast from './Toast.js'
-import toggleWordSave from './toggleWordSave.js'
+
+
 
 
 
 
 export default function () {
     const audioPlayer = document.querySelector('#audioPlayer')
-    const dndUploadLyric = document.querySelector('#dndUploadLyric')
-    const progressBar = document.querySelector('#progress-bar')
+    const dndUploadLyrics = document.querySelector('#dndUploadLyrics')
+    const noteList = document.querySelector('#noteList')
+    const progressBar = document.querySelector('#progressBar')
 
-    const queryCard = document.querySelector('#query-card')
-    const queryCheck = document.querySelector('#query-check')
-    const queryPlus = document.querySelector('#query-plus')
-    const queryClose = document.querySelector('#query-close')
+    const queryPopup = document.querySelector('#queryPopup')
+    const queryCheck = document.querySelector('#queryCheck')
+    const queryAdd = document.querySelector('#queryAdd')
+    const queryClose = document.querySelector('#queryClose')
+    const head = queryPopup.querySelector('.head')
+    const body = queryPopup.querySelector('.body')
 
     const pause = document.querySelector('#pause')
     const play = document.querySelector('#play')
     const singleSongLoop = document.querySelector('#singleSongLoop')
-    const lyricFollow = document.querySelector('#lyricFollow')
+    const lineFollow = document.querySelector('#lineFollow')
     const singleLineLoop = document.querySelector('#singleLineLoop')
     const offsetMinus = document.querySelector('#offsetMinus')
     const offsetPlus = document.querySelector('#offsetPlus')
+    const volume = document.querySelector('#volume')
 
+    const toDndUploadTrack = document.querySelector('#toDndUploadTrack')
+    const toNoteList = document.querySelector('#toNoteList')
+    const toSettings = document.querySelector('#toSettings')
 
     const multiSelect = document.querySelector('#multi-select')
 
-    queryPlus.addEventListener('click', function () {
-        toggleWordSave(true)
-    })
-    queryClose.addEventListener('click', function () {
-        toggleWordSave(false)
-        queryCard.classList.remove('popup')
-    })
-    // !querySelection
-    dndUploadLyric.addEventListener('mouseup', function () {
-        const selection = getSelection().toString()
-        if (!selection) return
-        // ?prevent click event
-        window.selecting = true
-        // ?render queryCard
-        const head = queryCard.querySelector('.head')
-        const body = queryCard.querySelector('.body')
-        head.textContent = selection
-        body.textContent = query(selection)
-        toggleWordSave(false)
-        queryCard.classList.add('popup')
+
+    volume.addEventListener('change', function () {
+        audioPlayer.volume = this.value
     })
 
-    // !scroll cancel lyricFollow
-    dndUploadLyric.addEventListener('wheel', function () {
-        if (audioPlayer.lyricFollow) {
-            audioPlayer.lyricFollow = false;
-            lyricFollow.classList.remove('enabled')
+
+    // !scroll cancel lineFollow
+    dndUploadLyrics.addEventListener('wheel', function () {
+        if (audioPlayer.lineFollow) {
+            audioPlayer.lineFollow = false;
+            lineFollow.classList.remove('enabled')
         }
     })
     // !ontimechange
     audioPlayer.addEventListener('timeupdate', function () {
+        if (!audioPlayer.lyricsLoaded) return
+
         // ?update progress bar
         progressBar.style.width = 100 * this.currentTime / this.duration + "%"
 
+        // !end of song back to firstLine
+        if (this.currentTime < 0.5) {
+            dndUploadLyrics.lastElementChild.classList.remove('playing')
+            dndUploadLyrics.firstElementChild.classList.add('playing')
+        }
         // ?cal nextLine then playiingLine
-        const lines = Array.from(dndUploadLyric.querySelectorAll('.line'))
-        let nextLine, playingLine
-        nextLine = lines.find(line => this.currentTime < line.timestamp)
-        playingLine = dndUploadLyric.querySelector('.line.playing')
+        let playingLine = dndUploadLyrics.querySelector('.line.playing')
+        playingLine.nextLine = playingLine.nextElementSibling ?? dndUploadLyrics.firstElementChild
 
-        // todo end of song back to firstLine how????? done:normal follow
-        let endtimestamp = playingLine.nextElementSibling.timestamp ?? audioPlayer.duration
+        let endtimestamp = playingLine.nextElementSibling ? playingLine.nextElementSibling.timestamp : audioPlayer.duration
         if (this.currentTime > endtimestamp) {
             // !end of playingLine, switch to nextLine
             if (this.singleLineLoop) {
@@ -75,12 +71,12 @@ export default function () {
                 this.currentTime = playingLine.timestamp
             } else {
                 playingLine.classList.remove('playing')
-                nextLine.classList.add('playing')
+                playingLine.nextLine.classList.add('playing')
             }
         }
 
-        // ?lyricFollow
-        if (this.lyricFollow) dndUploadLyric.scrollTo({
+        // ?lineFollow
+        if (this.lineFollow) dndUploadLyrics.scrollTo({
             behavior: "smooth",
             top: playingLine.offsetTop - 200
         })
@@ -108,9 +104,9 @@ export default function () {
         }
         audioPlayer.play()
     })
-    lyricFollow.addEventListener('click', function () {
+    lineFollow.addEventListener('click', function () {
         this.classList.toggle('enabled')
-        audioPlayer.lyricFollow = !audioPlayer.lyricFollow
+        audioPlayer.lineFollow = !audioPlayer.lineFollow
     })
     singleLineLoop.addEventListener('click', function () {
         this.classList.toggle('enabled')
@@ -147,13 +143,10 @@ export default function () {
         if (msg) {
             Toast.send(`err: fail to set back ${offset}ms.`, `alert`)
         } else {
-            const lines = dndUploadLyric.querySelectorAll('.line')
+            const lines = dndUploadLyrics.querySelectorAll('.line')
             lines.forEach(line => line.timestamp += (offset / 1000))
             Toast.send(`Set back ${offset}ms.`, `success`)
         }
     }
 
-    function query(word) {
-        return "bodyinformation"
-    }
 }

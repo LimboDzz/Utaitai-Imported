@@ -16,7 +16,7 @@
   --bdr-r: 10px;
 
   --aside-width: 170px;
-  --panel-list-width: 330px;
+  --panelList-width: 330px;
   --bottom-bar-height: 5rem;
   --logo-height: 6rem;
 
@@ -62,23 +62,23 @@ aside {
   background-repeat: no-repeat;
   background-size: cover; */
 }
-#funcs-aside {
+#funcsAside {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   flex: 1;
 }
-#funcs-aside > div {
+#funcsAside > div {
   display: flex;
   flex-direction: column;
   padding: 20px 10px;
 }
-#funcs-aside > div > a {
+#funcsAside > div > a {
   padding: 15px 20px;
   border-radius: var(--bdr-r);
   font-size: 1rem;
 }
-#funcs-aside > div > a i {
+#funcsAside > div > a i {
   padding: 0 10px;
 }
 /* ?------------------------------- */
@@ -90,7 +90,7 @@ main {
   top: 0px;
   display: flex;
 }
-#progress-bar {
+#progressBar {
   width: 0%;
   height: 2px;
   position: absolute;
@@ -99,7 +99,7 @@ main {
   z-index: 5;
   background-color: var(--bgc-vi);
 }
-#query-card {
+#queryPopup {
   position: fixed;
   width: 300px;
   height: 200px;
@@ -110,7 +110,7 @@ main {
   transform-origin: right bottom;
   transition: 300ms;
 }
-#query-card svg {
+#queryPopup svg {
   box-sizing: content-box;
   width: 1.5rem;
   height: 1.5rem;
@@ -118,6 +118,15 @@ main {
   fill: var(--color-sub);
   cursor: pointer;
 }
-#query-card.popup {
+#queryPopup.popup {
   transform: scale(1);
+}
+
+#toastContainer {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
 }

@@ -10,6 +10,9 @@ const User = require('./models/User');
 const settingsRouter = require('./routes/settings');
 const trackRouter = require('./routes/track');
 const lyricRouter = require('./routes/lyric');
+const noteRouter = require('./routes/note');
+
+
 //#endregion
 const PORT = process.env.PORT ?? 3000
 const app = express()
@@ -33,7 +36,7 @@ app.use('/aws', awsRouter)
 app.use('/settings', settingsRouter)
 app.use('/track', trackRouter)
 app.use('/lyric', lyricRouter)
-
+app.use('/note', noteRouter)
 
 
 

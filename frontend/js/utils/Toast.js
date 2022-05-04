@@ -1,19 +1,25 @@
-export default {
-    init() {
-        const toast = document.createElement('div')
-        toast.id = "toast"
-        toast.className = "toast"
-        document.body.appendChild(toast)
-    },
-    send(msg, type) {
-        clearTimeout(this.timeout)
-        this.el = document.querySelector('#toast')
-        this.el.textContent = msg
-        this.el.className = `toast toast-${type}`
-        this.el.classList.add(`toast-active`)
+import elementFromHtml from './elementFromHTML.js'
 
-        this.timeout = setTimeout(() => {
-            this.el.classList.remove("toast-active")
+/**
+ * Toast nodification
+ */
+export default class {
+    constructor() { }
+    static send(msg, type) {
+        // ?create and insert a toast
+        const toast = elementFromHtml(`
+<div class="toast toast-${type}">${msg}</div>
+`)
+        document.querySelector('#toastContainer').appendChild(toast)
+        setTimeout(() => {
+            toast.classList.add(`toast-active`)
+        }, 1)
+        // ?remove toast after transition
+        setTimeout(() => {
+            toast.addEventListener('transitionend', function () {
+                this.remove()
+            })
+            toast.classList.remove('toast-active')
         }, 5000)
     }
 }

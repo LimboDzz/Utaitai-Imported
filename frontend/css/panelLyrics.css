@@ -1,11 +1,11 @@
-#panel-lrc {
+#panelLyrics {
   width: 100%;
   display: flex;
   flex-direction: column;
   position: relative;
 }
 /* ?------------------------------ */
-#dndUploadLyric {
+#dndUploadLyrics {
   height: 100%;
   overflow-y: auto;
   scrollbar-width: none;
@@ -14,15 +14,15 @@
   text-align: center;
   border-left: 1px solid var(--color-bdr);
 }
-#dndUploadLyric .list-item {
+#dndUploadLyrics .list-item {
   user-select: text;
 }
-#dndUploadLyric .list-item::selection {
+#dndUploadLyrics .list-item::selection {
   color: var(--bgc-fg);
   background-color: var(--bgc-vi);
 }
 /* ?------------------------------ */
-#no-lyrics {
+#noLyrics {
   position: absolute;
   top: 0;
   left: 0;
@@ -39,10 +39,10 @@
   text-shadow: -2px 2px 5px var(--color-em);
   opacity: 0.5;
 }
-#no-lyrics b {
+#noLyrics b {
   color: var(--bgc-vi);
 }
-#no-lyrics svg {
+#noLyrics svg {
   width: 8rem;
   height: 8rem;
   fill: var(--bgc-vi);
@@ -72,14 +72,40 @@
 #audioPlayerCtrl svg:hover {
   fill: var(--color-em);
 }
+input[type='range'] {
+  -moz-appearance: none;
+  margin: 0 5px;
+  width: 100px;
+  height: 20px;
+  overflow: hidden;
+}
+
+input[type='range']::-moz-range-track {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: url('/static/images/volume-30.png') no-repeat 0 center;
+  background-size: 100px;
+}
+
+input[type='range']::-moz-range-thumb {
+  border: none;
+  width: 0;
+}
+input[type='range']::-moz-range-progress {
+  width: 100%;
+  height: 100%;
+  background: url('/static/images/volume.png') no-repeat 0 center;
+  background-size: 100px;
+}
 /* ?------------------------------ */
-#lrc-offset {
+#lineOffset {
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding-left: 5px;
 }
-#lrc-offset svg {
+#lineOffset svg {
   width: auto;
   height: 1rem;
 }

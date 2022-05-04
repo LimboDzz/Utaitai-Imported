@@ -1,7 +1,7 @@
 export default function () {
     const player = document.querySelector(`#audioPlayer`)
     const playlistLinks = document.querySelectorAll(`#views>a`)
-    const trackInfo = document.querySelector(`#current-track-info .info`)
+    const trackInfo = document.querySelector(`#currentTrackInfo .info`)
     playlistLinks.forEach(link => {
         link.addEventListener('click', function (e) {
             e.preventDefault()

@@ -1,12 +1,12 @@
-#panel-list {
-  width: var(--panel-list-width);
+#panelList {
+  width: var(--panelList-width);
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 /* ?------------------------------- */
-#select-search {
+#selectSearch {
   border-bottom: solid 1px var(--color-bdr);
   background-color: var(--bgc-bg);
   width: 100%;
@@ -23,15 +23,15 @@
   cursor: pointer;
 }
 /* ?------------------------------- */
-#dndUploadTrack {
+#panelList ul {
   flex: 1;
   padding: 10px 20px 0;
   overflow-y: auto;
   scrollbar-width: none;
 }
 /* ?------------------------------- */
-#current-track-info {
-  width: var(--panel-list-width);
+#currentTrackInfo {
+  width: var(--panelList-width);
   height: var(--bottom-bar-height);
   background-color: var(--bgc-bg);
   border-top: 1px solid var(--color-bdr);
