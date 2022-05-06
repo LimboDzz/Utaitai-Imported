@@ -5,30 +5,24 @@ const path = require('path')
 const { auth, requiresAuth } = require('express-openid-connect');
 const mongoose = require('mongoose');
 
-const awsRouter = require('./routes/aws');
 const User = require('./models/User');
+const awsRouter = require('./routes/aws');
 const settingsRouter = require('./routes/settings');
 const trackRouter = require('./routes/track');
 const lyricRouter = require('./routes/lyric');
 const noteRouter = require('./routes/note');
 
-
-//#endregion
 const PORT = process.env.PORT ?? 3000
 const app = express()
+
 connectDB()
 use()
-
-
 
 // ?req.isAuthenticated is provided from the auth router
 app.get('/', (req, res) => {
     req.oidc.isAuthenticated()
         ? res.sendFile(path.resolve("frontend", "index.html"))
         : res.sendFile(path.resolve("frontend", "toAuth.html"))
-})
-app.get('/profile', requiresAuth(), (req, res) => {
-    res.send(JSON.stringify(req.oidc.user))
 })
 
 // ?routes
@@ -44,6 +38,9 @@ app.use('/note', noteRouter)
 
 
 
+app.get('/profile', requiresAuth(), (req, res) => {
+    res.send(JSON.stringify(req.oidc.user))
+})
 
 
 
