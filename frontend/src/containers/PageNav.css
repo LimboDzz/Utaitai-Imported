@@ -1,0 +1,11 @@
+.logo {
+	width: 100%;
+	height: var(--logo-height);
+	background-color: var(--bgc-vi);
+}
+.pageLinks {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	flex: 1;
+}

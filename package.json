@@ -17,5 +17,8 @@
   "scripts": {
     "dev": "nodemon server",
     "doc": "jsdoc"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
   }
 }

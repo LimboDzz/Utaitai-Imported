@@ -1,0 +1,20 @@
+.nav {
+	background-color: var(--bgc-aside);
+	width: 170px;
+	height: 100%;
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+
+	display: flex;
+	flex-direction: column;
+}
+
+.main {
+	width: calc(100% - var(--aside-width));
+	height: 100%;
+	position: absolute;
+	left: var(--aside-width);
+	top: 0px;
+	display: flex;
+}

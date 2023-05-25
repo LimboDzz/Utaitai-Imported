@@ -1,0 +1,24 @@
+:root {
+  --bgc-vi: #ff5252;
+  --bgc-aside: #ffffff;
+  --bgc-fg: #ffffff;
+  --bgc-bg: #f8f8f8;
+  --bgc-em: #f1f1f1;
+
+  --color-em: #7f7e7a;
+  --color-sub: #bababa;
+  --color-sec: #9699a1;
+  --color-pri: #3d454c;
+  --color-shadow: rgba(0, 0, 0, 0.1);
+  --color-btn: rgba(0, 0, 0, 0.05);
+  --color-btn-hover: rgba(0, 0, 0, 0.1);
+  --color-bdr: rgba(0, 0, 0, 0.1);
+  --bdr-r: 10px;
+
+  --aside-width: 170px;
+  --panelList-width: 330px;
+  --bottom-bar-height: 5rem;
+  --logo-height: 6rem;
+
+  font-size: 16px;
+}
