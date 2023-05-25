@@ -5,18 +5,18 @@ const path = require('path');
 const { auth, requiresAuth } = require('express-openid-connect');
 const mongoose = require('mongoose');
 
-const User = require('../models/User');
-const awsRouter = require('../routes/aws');
-const settingsRouter = require('../routes/settings');
-const trackRouter = require('../routes/track');
-const lyricRouter = require('../routes/lyric');
-const noteRouter = require('../routes/note');
+const User = require('./models/User');
+const awsRouter = require('./routes/aws');
+const settingsRouter = require('./routes/settings');
+const trackRouter = require('./routes/track');
+const lyricRouter = require('./routes/lyric');
+const noteRouter = require('./routes/note');
 
 const PORT = process.env.PORT ?? 3000;
 const app = express();
 
-// connectDB();
-// use();
+connectDB();
+use();
 
 // ?req.isAuthenticated is provided from the auth router
 app.get('/', (req, res) => {
