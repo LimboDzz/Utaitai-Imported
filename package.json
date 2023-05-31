@@ -4,6 +4,8 @@
   "main": "server.js",
   "license": "MIT",
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.342.0",
+    "@aws-sdk/lib-storage": "^3.342.0",
     "aws-sdk": "^2.1121.0",
     "dotenv": "^16.0.0",
     "encoding": "^0.1.13",
@@ -17,5 +19,8 @@
   "scripts": {
     "dev": "nodemon server",
     "doc": "jsdoc"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
   }
 }
