@@ -1,11 +1,8 @@
-import contentFromHtml from '../js/utils/contentFromHTML.js'
+import contentFromHtml from '../js/utils/contentFromHTML.js';
 
-
-
-
-// !the content must be a function otherwise shadowRoot append nothing after initial construction
+// ?the content must be a function otherwise shadowRoot append nothing after initial construction
 function content() {
-    return contentFromHtml(`<style>
+	return contentFromHtml(`<style>
   
 label {
   position: relative;
@@ -25,13 +22,13 @@ label input {
 <label for="binding">
     <slot name="and"></slot>
     <input type="text" id="binding">
-</label>`)
+</label>`);
 }
 
 export default class extends HTMLElement {
-    constructor() {
-        super()
-        this.attachShadow({ mode: 'open' })
-        this.shadowRoot.append(content())
-    }
+	constructor() {
+		super();
+		this.attachShadow({ mode: 'open' });
+		this.shadowRoot.append(content());
+	}
 }

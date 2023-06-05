@@ -1,0 +1,56 @@
+<div id="dropzone">
+	<p>Drag and drop files here</p>
+</div>
+
+<script>
+	const dropzone = document.getElementById('dropzone');
+
+	// Prevent default drag behaviors
+	['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+		dropzone.addEventListener(eventName, preventDefaults, false);
+		document.body.addEventListener(eventName, preventDefaults, false);
+	});
+
+	// Highlight drop zone when item is dragged over it
+	['dragenter', 'dragover'].forEach(eventName => {
+		dropzone.addEventListener(eventName, highlight, false);
+	});
+
+	// Remove highlight when item is dragged out of the drop zone
+	['dragleave', 'drop'].forEach(eventName => {
+		dropzone.addEventListener(eventName, unhighlight, false);
+	});
+
+	// Handle dropped files
+	dropzone.addEventListener('drop', handleDrop, false);
+
+	function preventDefaults(e) {
+		e.preventDefault();
+		e.stopPropagation();
+	}
+
+	function highlight() {
+		dropzone.classList.add('highlight');
+	}
+
+	function unhighlight() {
+		dropzone.classList.remove('highlight');
+	}
+
+	async function handleDrop(e) {
+		const dt = e.dataTransfer;
+		const files = dt.files;
+
+		// Upload the dropped files to the server
+		const formData = new FormData();
+		for (let i = 0; i < files.length; i++) {
+			formData.append('files', files[i]);
+		}
+		await fetch('/upload', { method: 'POST', body: formData });
+
+		// Update the UI to show that the files were uploaded
+		const message = document.createElement('p');
+		message.textContent = `${files.length} file(s) uploaded successfully!`;
+		dropzone.appendChild(message);
+	}
+</script
